@@ -38,7 +38,7 @@ RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
     ln -s /root /home/vcap &&\
     echo "Downloading CF Buildpack from ${CF_BUILDPACK_URL}" &&\
     curl -fsSL ${CF_BUILDPACK_URL} -o /tmp/cf-mendix-buildpack.zip && \
-    cp /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/
+    cp /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/ && \
     python3 -m zipfile -e /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/ &&\
     rm /tmp/cf-mendix-buildpack.zip &&\
     chown -R ${USER_UID}:0 /opt/mendix &&\
