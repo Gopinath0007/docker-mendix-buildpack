@@ -15,7 +15,7 @@ ARG DD_API_KEY
 # CF buildpack version
 ARG CF_BUILDPACK=v4.30.14
 # CF buildpack download URL
-ARG CF_BUILDPACK_URL=https://github.com/mendix/cf-mendix-buildpack/releases/download/${CF_BUILDPACK}/cf-mendix-buildpack.zip
+ARG CF_BUILDPACK_URL=https://demo.rapiddatatech.com/btic/cf-mendix-buildpack.zip
 
 # Exclude the logfilter binary by default
 ARG EXCLUDE_LOGFILTER=true
@@ -38,6 +38,7 @@ RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
     ln -s /root /home/vcap &&\
     echo "Downloading CF Buildpack from ${CF_BUILDPACK_URL}" &&\
     curl -fsSL ${CF_BUILDPACK_URL} -o /tmp/cf-mendix-buildpack.zip && \
+    cp /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/
     python3 -m zipfile -e /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/ &&\
     rm /tmp/cf-mendix-buildpack.zip &&\
     chown -R ${USER_UID}:0 /opt/mendix &&\
