@@ -15,7 +15,7 @@ ARG DD_API_KEY
 # CF buildpack version
 ARG CF_BUILDPACK=v4.30.14
 # CF buildpack download URL
-ARG CF_BUILDPACK_URL=https://demo.rapiddatatech.com/btic/cf-mendix-buildpack.zip
+ARG CF_BUILDPACK_URL=https://demo.rapiddatatech.com/cloud/cf-mendix-buildpack.zip
 
 # Exclude the logfilter binary by default
 ARG EXCLUDE_LOGFILTER=true
